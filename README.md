@@ -53,7 +53,7 @@ Existing solutions are often **proprietary, expensive, or non-interoperable**, l
 ## 🧠 System Philosophy
 
 
-<img width="500" height="459" alt="image" src="https://github.com/user-attachments/assets/933b3488-8ad5-4d42-81d5-667433c451d2" />
+![Project Overview](https://github.com/user-attachments/assets/933b3488-8ad5-4d42-81d5-667433c451d2)
 
 
 
@@ -68,8 +68,10 @@ The framework is built on the following principles:
 ---
 
 ## 🏗️ System Architecture
-<img width="500" height="336" alt="image" src="https://github.com/user-attachments/assets/713456be-67b6-44ea-b9ca-ddfc03892b03" />
-<img width="500" height="336" alt="image" src="https://github.com/user-attachments/assets/455fc785-96bf-4391-913d-1e6a7d67e5f3" />
+
+![System Architecture – Main](https://github.com/user-attachments/assets/713456be-67b6-44ea-b9ca-ddfc03892b03)
+
+![System Architecture – Detailed](https://github.com/user-attachments/assets/455fc785-96bf-4391-913d-1e6a7d67e5f3)
 
 
 
@@ -90,9 +92,12 @@ The architecture ensures:
 
 ## 🔗 Functional Architecture
 
-<img width="500" height="398" alt="image" src="https://github.com/user-attachments/assets/ea4b80b4-81c7-4865-82f5-252ce0f3df33" />
-<img width="500" height="398" alt="image" src="https://github.com/user-attachments/assets/5a5cd1d0-0a25-4ed8-8cbc-e8344407b9b4" />
-<img width="500" height="400" alt="Screenshot 2026-01-05 225219" align = centre src="https://github.com/user-attachments/assets/7d48b166-d05f-4f9d-bc67-bae2396c192f" />
+![Image 1](https://github.com/user-attachments/assets/ea4b80b4-81c7-4865-82f5-252ce0f3df33)
+
+![Image 2](https://github.com/user-attachments/assets/5a5cd1d0-0a25-4ed8-8cbc-e8344407b9b4)
+
+![Image 3](https://github.com/user-attachments/assets/7d48b166-d05f-4f9d-bc67-bae2396c192f)
+
 
 
 
@@ -122,11 +127,11 @@ Every medicine unit carries a **QR-encoded Unique Digital Identifier (UDI)** tha
 ---
 
 ## 🔍 End-to-End Verification Flow
-<img width="500" height="402" alt="image" src="https://github.com/user-attachments/assets/f697709d-d936-4d91-b891-a9e25eb16dbc" />
-<img width="500" height="402" alt="image" src="https://github.com/user-attachments/assets/71f7f27a-20b0-4fba-9f66-fe06800595e2" />
+![Image 1](https://github.com/user-attachments/assets/f697709d-d936-4d91-b891-a9e25eb16dbc)
 
-<img width="500" height="402" alt="image" src="https://github.com/user-attachments/assets/7aa77b43-039c-4541-9c3d-89cad613b0d0" />
+![Image 2](https://github.com/user-attachments/assets/71f7f27a-20b0-4fba-9f66-fe06800595e2)
 
+![Image 3](https://github.com/user-attachments/assets/7aa77b43-039c-4541-9c3d-89cad613b0d0)
 
 
 
@@ -181,7 +186,7 @@ Every medicine unit carries a **QR-encoded Unique Digital Identifier (UDI)** tha
 
 ## 🚨 Recall & Safety Management
 
-<img width="500" height="400" alt="image" src="https://github.com/user-attachments/assets/31fac598-e6cf-40d9-9f65-260263a16701" />
+![Image](https://github.com/user-attachments/assets/31fac598-e6cf-40d9-9f65-260263a16701)
 
 
 When a medicine batch is identified as unsafe:
