@@ -53,7 +53,11 @@ Existing solutions are often **proprietary, expensive, or non-interoperable**, l
 ## 🧠 System Philosophy
 
 
-![Project Overview](https://github.com/user-attachments/assets/933b3488-8ad5-4d42-81d5-667433c451d2)
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/bf9624a1-53bf-4e1f-97b1-5a386418bbd7" />
+
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/22817786-f0f3-4257-9921-947a3394aa31" />
+
+
 
 
 
@@ -69,10 +73,7 @@ The framework is built on the following principles:
 
 ## 🏗️ System Architecture
 
-![System Architecture – Main](https://github.com/user-attachments/assets/713456be-67b6-44ea-b9ca-ddfc03892b03)
-
-![System Architecture – Detailed](https://github.com/user-attachments/assets/455fc785-96bf-4391-913d-1e6a7d67e5f3)
-
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/a78db520-ca25-42c7-9abc-898994512b60" />
 
 
 The system follows a **centralized verification architecture**, where all stakeholders interact with a single verification server that maintains the master database of medicine identities, lifecycle states, movement history, and recall information.
@@ -92,13 +93,7 @@ The architecture ensures:
 
 ## 🔗 Functional Architecture
 
-![Image 1](https://github.com/user-attachments/assets/ea4b80b4-81c7-4865-82f5-252ce0f3df33)
-
-![Image 2](https://github.com/user-attachments/assets/5a5cd1d0-0a25-4ed8-8cbc-e8344407b9b4)
-
 ![Image 3](https://github.com/user-attachments/assets/7d48b166-d05f-4f9d-bc67-bae2396c192f)
-
-
 
 
 
@@ -127,12 +122,8 @@ Every medicine unit carries a **QR-encoded Unique Digital Identifier (UDI)** tha
 ---
 
 ## 🔍 End-to-End Verification Flow
-![Image 1](https://github.com/user-attachments/assets/f697709d-d936-4d91-b891-a9e25eb16dbc)
 
-![Image 2](https://github.com/user-attachments/assets/71f7f27a-20b0-4fba-9f66-fe06800595e2)
-
-![Image 3](https://github.com/user-attachments/assets/7aa77b43-039c-4541-9c3d-89cad613b0d0)
-
+<img width="900" height="900" alt="image" src="https://github.com/user-attachments/assets/29efd3e4-8183-44bb-957e-81c057755bc9" />
 
 
 1. A QR code on the medicine unit is scanned  
@@ -185,9 +176,6 @@ Every medicine unit carries a **QR-encoded Unique Digital Identifier (UDI)** tha
 ---
 
 ## 🚨 Recall & Safety Management
-
-![Image](https://github.com/user-attachments/assets/31fac598-e6cf-40d9-9f65-260263a16701)
-
 
 When a medicine batch is identified as unsafe:
 
