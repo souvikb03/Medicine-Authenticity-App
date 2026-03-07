@@ -607,11 +607,220 @@ When the device has no internet:
 </details>
 
 <details>
-<summary><b>🔍 Regulatory Inspector — Full Module Reference</b></summary>
 
 ### Inspector Dashboard
 
-Access across all stakeholder data for compliance, audit, and enforcement.
+MedTrace's Regulatory Inspector module is designed specifically around **India's pharmaceutical regulatory hierarchy**. Multiple central and state-level bodies operate with different jurisdictions, powers, and data access needs — each gets a scoped role inside MedTrace.
+
+---
+
+#### 🏛️ Indian Regulatory Bodies Integrated in MedTrace
+
+India's drug regulation involves a layered system of central and state authorities. MedTrace maps each body to a specific access role:
+
+| Regulatory Body | Full Name | Jurisdiction | MedTrace Role |
+|---|---|---|---|
+| **CDSCO** | Central Drugs Standard Control Organisation | National — all medicines, biologicals, medical devices | `central_inspector` — full national read + recall authority |
+| **ICMR** | Indian Council of Medical Research | National — research oversight, pharmacovigilance, clinical trial drugs | `icmr_researcher` — read-only + research data export |
+| **NPPA** | National Pharmaceutical Pricing Authority | National — price compliance, MRP enforcement | `nppa_auditor` — read MRP data + pricing audit |
+| **IPC / PVPI** | Indian Pharmacopoeia Commission / Pharmacovigilance Programme of India | National — adverse drug reaction, quality standards | `ipc_auditor` — quality alerts + ADR data |
+| **State FDA** | State Food and Drug Administration | State-level — licensing, inspections, state recalls | `state_inspector` — state-scoped read + state recall |
+| **DCG(I)** | Drugs Controller General of India | National — highest drug authority, approves all new drugs | `dcgi_authority` — highest access level, national recall |
+| **NIB** | National Institute of Biologicals | National — biological medicines, vaccines | `nib_auditor` — read-only for biological product batches |
+
+---
+
+#### 🔬 ICMR — Indian Council of Medical Research
+
+ICMR is India's apex body for biomedical and health research. Within MedTrace, ICMR has a specialised **Research & Pharmacovigilance** access role that gives it unique capabilities beyond standard inspection.
+
+##### Why ICMR Needs Access to MedTrace Data
+
+ICMR uses real-world medicine distribution and consumption data for:
+- **Pharmacovigilance** — monitoring adverse drug reactions (ADR) at population scale
+- **Drug utilisation studies** — which medicines are being consumed, where, in what quantities
+- **Counterfeit medicine epidemiology** — mapping where fake medicines are geographically concentrated
+- **Clinical trial drug tracking** — ensuring investigational medicines in trials are properly authenticated
+- **Essential medicines monitoring** — tracking availability of Schedule H / National Essential Medicines List drugs across states
+- **Antimicrobial resistance (AMR) research** — monitoring antibiotic consumption patterns linked to resistance
+
+##### ICMR Access Capabilities in MedTrace
+
+```
+ICMR Researcher Login
+│
+├── 📊 National Medicine Consumption Dashboard
+│     ├── Scan frequency heatmap (district → state → national)
+│     ├── Medicine category breakdown (antibiotics, analgesics, etc.)
+│     ├── Month-over-month trend analysis
+│     └── Export: CSV / JSON / FHIR-compliant format
+│
+├── 🗺️ Geographic Distribution Analysis
+│     ├── Which districts have highest unverified (Invalid QR) scan rates
+│     ├── Urban vs rural medicine access patterns
+│     ├── State-wise distribution of Schedule H / H1 medicines
+│     └── Correlate scan data with HMIS health data
+│
+├── 🔬 Pharmacovigilance Integration
+│     ├── View all "Recalled" QR scan events with patient geography
+│     ├── Cross-reference with PvPI (Pharmacovigilance Programme of India) ADR reports
+│     ├── Flag batches with abnormally high "Recalled" or "Invalid" scan rates
+│     └── Generate batch-level risk signal reports for CDSCO
+│
+├── 🧪 Clinical Trial Drug Monitoring
+│     ├── Search batches tagged as "Investigational Medicinal Product (IMP)"
+│     ├── Verify trial drugs remain in authorised trial site supply chain
+│     ├── Flag any trial batch that appears outside registered trial sites
+│     └── Export chain-of-custody report for Ethics Committee submission
+│
+├── 📋 Drug Utilisation Studies (DUS)
+│     ├── Defined Daily Dose (DDD) calculations per region
+│     ├── Antibiotic consumption index (WHO ATC/DDD methodology)
+│     ├── Essential medicines coverage analysis
+│     └── Schedule H1 antibiotic dispensing patterns
+│
+└── 📤 Data Export for Research
+      ├── Anonymised dataset export (no patient PII — geography + medicine only)
+      ├── FHIR R4 format for interoperability with ABDM / NHA systems
+      ├── API access for ICMR's own analytics platforms
+      └── Scheduled automated reports (daily / weekly / monthly)
+```
+
+##### ICMR Dashboard — Key Views
+
+**1. Pharmacovigilance Signal Board**
+Automatically flags batches where the ratio of `recalled` or `invalid` scan responses exceeds a configurable threshold in a given region. For example: if more than 5% of scans for Amoxicillin 250mg in a district return "Invalid" in a 7-day window, ICMR is alerted to a possible counterfeit surge in that area.
+
+**2. Antibiotic Stewardship Monitor**
+Tracks dispensing of Schedule H1 antibiotics (Azithromycin, Amoxicillin-Clavulanate, Ciprofloxacin, etc.) by region. Highlights districts with consumption spikes — potential indicators of irrational use or AMR risk — aligned with India's National Action Plan on AMR (NAP-AMR 2017).
+
+**3. Essential Medicines Availability Tracker**
+Cross-references MedTrace scan data against the National List of Essential Medicines (NLEM 2022). Shows which NLEM medicines have low scan density in tribal / rural districts — indicating potential supply gaps — and flags for PMBJP (Pradhan Mantri Bhartiya Janaushadhi Pariyojana) review.
+
+**4. Clinical Trial Supply Chain Monitor**
+Any batch registered in MedTrace with the `IMP` (Investigational Medicinal Product) flag is tracked separately. ICMR can see the exact authorised trial sites each IMP batch should reach. Any QR scan of an IMP batch outside a registered trial site triggers an automatic alert to ICMR and the sponsor company.
+
+---
+
+#### 🏥 CDSCO — Central Drugs Standard Control Organisation
+
+CDSCO holds the highest regulatory authority and has the broadest access in MedTrace.
+
+##### CDSCO Capabilities
+
+```
+CDSCO Inspector Login
+│
+├── 🔍 National Batch Search
+│     ├── Search by batch no, medicine, manufacturer, state, date range
+│     ├── Full custody chain from manufacture to retailer
+│     └── Flag for investigation or trigger immediate recall
+│
+├── 🚨 National Recall Authority
+│     ├── Trigger Class I / II / III recall (WHO classification)
+│     ├── Mandatory recall (overrides manufacturer) with regulatory order number
+│     ├── Real-time propagation to all distributors and retailers nationwide
+│     └── Issue public advisory (appears on all consumer scan results)
+│
+├── 🏭 Manufacturer Compliance Audit
+│     ├── Schedule M GMP compliance score per manufacturer
+│     ├── Batch rejection rates, QC failure history
+│     ├── Operator job code audit (who printed what, when)
+│     ├── Drug License expiry monitoring
+│     └── Export Schedule 17 (labelling compliance) audit report
+│
+├── 🗂️ National Drug Register View
+│     ├── All registered manufacturers with license status
+│     ├── Approved vs unapproved products being sold
+│     ├── Cross-reference with CDSCO's own Central Drugs Standard database
+│     └── Flag unlicensed products in the MedTrace chain
+│
+└── 📊 National Intelligence Dashboard
+      ├── Counterfeit hotspot map (high Invalid QR density by district)
+      ├── Recall response compliance (how fast distributors/retailers acted)
+      ├── Top 10 most-complained medicines (via consumer "Report Fake" button)
+      └── Monthly compliance report auto-generated for Ministry of Health
+```
+
+##### CDSCO Recall Classification (WHO Framework, India-Adapted)
+
+| Class | Definition | Example | MedTrace Action |
+|---|---|---|---|
+| **Class I** | Reasonable probability of serious adverse health consequence or death | Contaminated sterile injectable; wrong active ingredient | Immediate nationwide recall. All portals locked for that batch. Consumer scan → RED + emergency banner. |
+| **Class II** | May cause temporary adverse health consequences; remote probability of serious effects | Sub-potent antibiotic (60% of label strength) | Rapid state/national recall. Distributor and retailer stock flagged. Consumer scan → RECALL warning. |
+| **Class III** | Unlikely to cause adverse health consequences but violates regulations | Missing batch number on label; minor packaging defect | Administrative recall. Supply chain flagged. Consumer scan → WARNING (orange, not red). |
+
+---
+
+#### 🏛️ State FDA — State Food and Drug Administration
+
+Each state has its own FDA with jurisdiction over manufacturers, distributors, and retailers registered in that state.
+
+##### State FDA Capabilities
+
+```
+State FDA Inspector Login (e.g., Maharashtra FDA)
+│
+├── Scoped to Maharashtra-registered entities only
+├── View all batches manufactured in Maharashtra
+├── Inspect distributors operating within Maharashtra
+├── Trigger state-level recall (does not propagate beyond state boundary)
+├── Schedule M inspection report upload per manufacturer
+├── Drug license renewal status monitoring
+└── Export state-level compliance report for State Health Department
+```
+
+---
+
+#### 💊 NPPA — National Pharmaceutical Pricing Authority
+
+NPPA enforces the Drugs (Prices Control) Order (DPCO) — ensuring medicines are not sold above the government-set ceiling price.
+
+##### NPPA Capabilities in MedTrace
+
+```
+NPPA Auditor Login
+│
+├── 📋 MRP Compliance Monitor
+│     ├── View base price, distributor price, retailer price, and MRP per medicine
+│     ├── Flag any medicine where retailer selling price > MRP (as set in product catalog)
+│     ├── Cross-reference with NPPA's National List of Price-Controlled Medicines
+│     └── Auto-flag DPCO Schedule I (price-controlled formulations) violations
+│
+├── 📊 Price Trend Analysis
+│     ├── Track distributor-set prices over time per medicine per region
+│     ├── Identify price gouging during shortage events
+│     └── Export pricing data for DPCO enforcement proceedings
+│
+└── 🏭 Manufacturer Price Declaration Audit
+      ├── Verify manufacturer's declared base price matches NPPA ceiling
+      └── Flag products sold above DPCO ceiling price for prosecution
+```
+
+---
+
+#### 🧬 IPC / PVPI — Pharmacovigilance Programme of India
+
+The Indian Pharmacopoeia Commission runs PvPI — India's national adverse drug reaction (ADR) monitoring system.
+
+##### IPC / PVPI Capabilities in MedTrace
+
+```
+IPC / PVPI Auditor Login
+│
+├── 🔗 ADR Signal Correlation
+│     ├── Cross-reference recalled batches with reported ADR events in VigiFlow
+│     ├── Link batch-level QR data to patient ADR reports (by geography + time)
+│     └── Generate medicine risk signals for Pharmacopoeia quality review
+│
+├── 📋 Quality Standard Compliance
+│     ├── Verify pharmacopoeial standards declared on product label match IP/USP/BP
+│     └── Flag products making unapproved pharmacopoeial claims
+│
+└── 📊 National ADR Heatmap
+      └── Districts with highest ADR reports correlated with batch recall data
+```
+
 
 #### Access Levels
 
