@@ -75,6 +75,40 @@ According to the **World Health Organization**, an estimated **1 in 10 medical p
 | 🗂️ **Ownership Chain** | Every unit stores full custody chain from manufacture to purchase |
 
 ---
+## 📊 Comparison with Existing Systems
+
+|  | Sproxil | mPedigree | PharmaSecure | EMVS (EU) | MediLedger | **MedTrace** |
+|---|---|---|---|---|---|---|
+| **Technology** | SMS OTP | USSD/SMS | SMS OTP | 2D Barcode | Blockchain | QR + Firebase |
+| **End-to-End Chain** | ❌ | ❌ | ❌ | Partial | Partial | ✅ |
+| **Parent–Child Packaging** | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| **Real-Time Recall** | ❌ | ❌ | ❌ | Partial | ❌ | ✅ |
+| **B2B Marketplace** | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| **POS Terminal** | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| **Offline Support** | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ |
+| **Regulatory Inspector** | ❌ | ❌ | ❌ | ✅ | Limited | ✅ |
+| **GST Invoicing** | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| **Open Source** | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| **No Hardware Needed** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ |
+| **Free to Use** | ❌ | ❌ | ❌ | N/A | ❌ | ✅ |
+| **Works Without Internet** | ❌ | Partial | ❌ | ❌ | ❌ | ✅ |
+
+---
+
+## 📚 Research & Problem Statement
+
+### Literature Gap Analysis
+
+| Research Area | Gap Identified | MedTrace Solution |
+|---|---|---|
+| Authentication systems | Single-level verification (strip only) — no packaging hierarchy | Parent–child QR model (Carton→Box→Strip→Unit) |
+| Recall systems | Manual, phone-based recall — 24–72h propagation | Cloud Function recall — < 5 seconds propagation |
+| Supply chain tracking | Closed, proprietary systems — no interoperability | Open-source, API-first design |
+| Consumer access | Requires dedicated SMS/app per brand | Universal QR, browser-based, works on any phone |
+| Regulatory compliance | No built-in audit trail for inspectors | Inspector portal with full custody chain |
+| Invoicing | Manual GST invoicing, error-prone | Auto-generated, CGST+SGST split, PDF download |
+
+---
 
 ## 🖥️ Demonstration
 
@@ -1306,38 +1340,7 @@ After `npm run seed`, the demo environment contains:
 
 ---
 
-## 📊 Comparison with Existing Systems
 
-|  | Sproxil | mPedigree | PharmaSecure | EMVS (EU) | MediLedger | **MedTrace** |
-|---|---|---|---|---|---|---|
-| **Technology** | SMS OTP | USSD/SMS | SMS OTP | 2D Barcode | Blockchain | QR + Firebase |
-| **End-to-End Chain** | ❌ | ❌ | ❌ | Partial | Partial | ✅ |
-| **Parent–Child Packaging** | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| **Real-Time Recall** | ❌ | ❌ | ❌ | Partial | ❌ | ✅ |
-| **B2B Marketplace** | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| **POS Terminal** | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| **Offline Support** | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ |
-| **Regulatory Inspector** | ❌ | ❌ | ❌ | ✅ | Limited | ✅ |
-| **GST Invoicing** | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| **Open Source** | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| **No Hardware Needed** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ |
-| **Free to Use** | ❌ | ❌ | ❌ | N/A | ❌ | ✅ |
-| **Works Without Internet** | ❌ | Partial | ❌ | ❌ | ❌ | ✅ |
-
----
-
-## 📚 Research & Problem Statement
-
-### Literature Gap Analysis
-
-| Research Area | Gap Identified | MedTrace Solution |
-|---|---|---|
-| Authentication systems | Single-level verification (strip only) — no packaging hierarchy | Parent–child QR model (Carton→Box→Strip→Unit) |
-| Recall systems | Manual, phone-based recall — 24–72h propagation | Cloud Function recall — < 5 seconds propagation |
-| Supply chain tracking | Closed, proprietary systems — no interoperability | Open-source, API-first design |
-| Consumer access | Requires dedicated SMS/app per brand | Universal QR, browser-based, works on any phone |
-| Regulatory compliance | No built-in audit trail for inspectors | Inspector portal with full custody chain |
-| Invoicing | Manual GST invoicing, error-prone | Auto-generated, CGST+SGST split, PDF download |
 
 ### Key Research References
 
@@ -1358,7 +1361,14 @@ After `npm run seed`, the demo environment contains:
 
 ## 🛠 Tech Stack
 
-### Frontend
+MedTrace has two defined technology tiers — the **Prototype** (current build, academic/pilot use) and the **Enterprise** (future production-grade version designed to handle national-scale pharmaceutical traceability, millions of QR scans per day, and regulatory-grade uptime).
+
+---
+
+### 🔬 Tier 1 — Prototype Stack
+*Current implementation. Suitable for academic demonstration, regional pilots, and early-stage deployments up to ~50 manufacturers and ~5,000 retailers.*
+
+#### Frontend
 
 | Technology | Version | Purpose |
 |---|---|---|
@@ -1372,7 +1382,7 @@ After `npm run seed`, the demo environment contains:
 | jsPDF | 2 | Client-side PDF generation (invoices) |
 | Zod | 3 | Schema validation (frontend) |
 
-### Backend & Infrastructure
+#### Backend & Infrastructure
 
 | Technology | Purpose |
 |---|---|
@@ -1383,7 +1393,7 @@ After `npm run seed`, the demo environment contains:
 | Firebase Cloud Messaging | Push notifications for recalls/alerts |
 | JWT (jsonwebtoken) | Stateless API authentication |
 
-### Development Tools
+#### Development Tools
 
 | Tool | Purpose |
 |---|---|
@@ -1392,6 +1402,129 @@ After `npm run seed`, the demo environment contains:
 | Playwright | End-to-end testing |
 | Husky + lint-staged | Pre-commit hooks |
 | GitHub Actions | CI/CD pipeline |
+
+**Prototype Limitations:**
+- Single Firestore instance — no horizontal DB scaling
+- Firebase Functions cold-start latency (~1–3s) under low traffic
+- No message queue — recall propagation is synchronous
+- No dedicated caching layer — repeated QR verifications hit Firestore each time
+- Logging and monitoring via Firebase console only
+- No multi-region failover
+
+---
+### 🏭 Tier 2 — Enterprise Stack
+*Future version. Designed for national-scale deployment — CDSCO integration, crores of QR codes, 99.99% uptime SLA, multi-region redundancy, and regulatory-grade audit immutability.*
+
+#### Frontend & Mobile
+
+| Technology | Version | Purpose |
+|---|---|---|
+| Next.js | 15+ (App Router) | Web portal — SSR + ISR for fast public verification pages |
+| React Native + Expo | Latest | Native iOS + Android apps for consumers and field inspectors |
+| TypeScript | 5+ | Full type safety across all clients |
+| Tailwind CSS | 4 | Styling |
+| TanStack Query | 5 | Server state, caching, background refetch |
+| Zustand | 4 | Lightweight global state management |
+| React Hook Form + Zod | Latest | Form handling + schema validation |
+| Recharts / D3.js | Latest | Interactive analytics dashboards |
+| i18next | Latest | Multi-language support (English, Hindi, Bengali, Tamil, Telugu) |
+| PWA (next-pwa) | Latest | Installable web app for offline-capable consumer verification |
+
+#### Backend — Microservices
+
+| Service | Technology | Purpose |
+|---|---|---|
+| **API Gateway** | Kong / AWS API Gateway | Rate limiting, auth, routing, load balancing |
+| **Auth Service** | Node.js + Keycloak (OAuth 2.0 / OIDC) | SSO, role management, Aadhaar integration |
+| **Medicine Registry** | Node.js + Express | Product catalog, batch registration, ownership records |
+| **QR Engine** | Go (Golang) | High-throughput QR UID generation — handles 100K+ codes/batch |
+| **Verification Service** | Node.js + Redis cache | Sub-100ms QR scan responses at scale |
+| **Recall Engine** | Node.js + Apache Kafka | Asynchronous, guaranteed recall propagation across all stakeholders |
+| **Invoice Service** | Node.js + Puppeteer | Server-side PDF invoice generation (GSTN-compliant) |
+| **Notification Service** | Node.js + Firebase FCM + Twilio | Push, SMS, WhatsApp, email alerts |
+| **Analytics Service** | Python + Apache Spark | Batch analytics, ML anomaly detection for counterfeit patterns |
+| **Audit Service** | Node.js + append-only DB | Immutable audit log — no record can be deleted or modified |
+| **Inspector Service** | Node.js | CDSCO API integration, investigation management |
+
+#### Database Layer — Polyglot Persistence
+
+*Different data has different access patterns — one database type cannot optimally serve all use cases.*
+
+| Database | Technology | What It Stores | Why This DB |
+|---|---|---|---|
+| **Primary Transactional DB** | PostgreSQL 16 (with Citus for sharding) | Users, products, batches, shipments, orders, recalls | ACID transactions, complex joins, relational integrity |
+| **Medicine Records (Hot)** | MongoDB Atlas | Individual medicine QR records (billions of docs) | Flexible schema, horizontal sharding by batchId, fast point lookups |
+| **Verification Cache** | Redis Cluster | QR verification results cached for 60 seconds | Sub-millisecond read latency for high-frequency consumer scans |
+| **Session Store** | Redis Sentinel | JWT session blacklist, rate-limit counters | In-memory speed, TTL support |
+| **Analytics / OLAP** | Apache Cassandra | Scan event logs, verification history, time-series data | Write-optimized, horizontally scalable, no single point of failure |
+| **Search Engine** | Elasticsearch | Full-text medicine search, inspector cross-chain queries | Fuzzy search, faceted filtering, aggregations |
+| **Audit Ledger** | Amazon QLDB / Hyperledger Fabric | Immutable ownership chain, recall trigger records | Cryptographic tamper-evidence, append-only by design |
+| **Object Storage** | AWS S3 / MinIO (self-hosted) | QR print PDFs, invoice PDFs, lab reports, evidence files | Durable, cheap, scalable blob storage |
+| **Message Queue** | Apache Kafka | Recall propagation events, shipment notifications, audit events | Guaranteed delivery, replay capability, decouples services |
+| **Time-Series DB** | InfluxDB | System performance metrics, API latency, scan rate telemetry | Purpose-built for metrics, high write throughput |
+
+#### Infrastructure & DevOps
+
+| Layer | Technology | Purpose |
+|---|---|---|
+| **Container Runtime** | Docker + Kubernetes (EKS / GKE) | Containerised microservices, auto-scaling, self-healing |
+| **Service Mesh** | Istio | Service-to-service mTLS, traffic management, circuit breaking |
+| **CI/CD** | GitHub Actions + ArgoCD | Automated testing, build, and GitOps deployment |
+| **Infrastructure as Code** | Terraform + Helm | Reproducible cloud infrastructure provisioning |
+| **Secrets Management** | HashiCorp Vault | Centralised secrets, API keys, DB credentials — never in env vars |
+| **CDN** | Cloudflare | Global edge caching for public verification pages (< 50ms worldwide) |
+| **Load Balancer** | AWS ALB / NGINX | L7 load balancing, SSL termination, health checks |
+| **DNS** | Cloudflare DNS | Low-TTL failover routing |
+| **Multi-Region** | AWS Mumbai (primary) + AWS Singapore (DR) | 99.99% uptime SLA, disaster recovery |
+
+#### Observability & Security
+
+| Category | Technology | Purpose |
+|---|---|---|
+| **Centralised Logging** | ELK Stack (Elasticsearch + Logstash + Kibana) | All service logs, searchable, retained 365 days |
+| **Distributed Tracing** | Jaeger / OpenTelemetry | End-to-end request tracing across microservices |
+| **Metrics & Alerting** | Prometheus + Grafana | Real-time dashboards, anomaly alerts, SLA monitoring |
+| **Error Tracking** | Sentry | Exception capture, stack traces, release tracking |
+| **Uptime Monitoring** | Pingdom / Betterstack | External health checks, incident alerts |
+| **SIEM** | AWS GuardDuty + Wazuh | Threat detection, intrusion monitoring |
+| **Penetration Testing** | OWASP ZAP + Burp Suite | Scheduled automated security scans |
+| **WAF** | Cloudflare WAF + AWS WAF | SQL injection, XSS, DDoS protection at edge |
+| **DDoS Protection** | Cloudflare Magic Transit | Network-layer volumetric attack mitigation |
+| **Vulnerability Scanning** | Snyk + Trivy | Container and dependency CVE scanning in CI/CD |
+
+#### Compliance & Regulatory Integration
+
+| Integration | Purpose |
+|---|---|
+| **GSTN API** | Direct GST invoice validation and e-invoicing (IRN + QR) |
+| **CDSCO API** | Regulatory recall triggers, drug license verification |
+| **Aadhaar / DigiLocker** | Manufacturer and inspector KYC verification |
+| **ABDM (Ayushman Bharat)** | Health ID integration for patient medicine history |
+| **ONDC (Open Network for Digital Commerce)** | B2B marketplace interoperability with national commerce network |
+| **India Post / Delhivery API** | Shipment tracking integration |
+| **RBI Payment Gateway** | UPI, NEFT, IMPS for B2B payment settlement |
+
+---
+
+### 📊 Prototype vs Enterprise — At a Glance
+
+| Dimension | 🔬 Prototype | 🏭 Enterprise |
+|---|---|---|
+| **QR Codes / Day** | ~10,000 | ~50,000,000+ |
+| **Concurrent Users** | ~100 | ~500,000+ |
+| **Verification Latency** | ~800ms (Firestore) | < 50ms (Redis cache + CDN) |
+| **Recall Propagation** | ~5 seconds (synchronous) | < 500ms (Kafka async, guaranteed) |
+| **Database** | Single Firestore | Polyglot — PostgreSQL + MongoDB + Redis + Cassandra |
+| **Architecture** | Monolith + Firebase Functions | Microservices on Kubernetes |
+| **Uptime SLA** | ~99.5% (Firebase managed) | 99.99% (multi-region active-active) |
+| **Mobile App** | Browser PWA | Native iOS + Android (React Native) |
+| **Languages** | English only | English + Hindi + 4 regional languages |
+| **Regulatory** | Manual CDSCO reporting | Direct CDSCO API integration |
+| **Audit Trail** | Firestore records | Immutable QLDB / Hyperledger ledger |
+| **Analytics** | Basic charts (Recharts) | Apache Spark + ML anomaly detection |
+| **Infrastructure** | Firebase (serverless) | Kubernetes on AWS (multi-region) |
+| **Cost / Month** | ~₹0 (free tier) | ~₹8–15 lakh (national scale) |
+| **Team Size to Operate** | 1–2 developers | 8–15 engineers (SRE + backend + mobile) |
 
 ---
 
