@@ -1,5 +1,5 @@
  <div align="center">
-  <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/6434763b-cf79-4fca-8443-b78d61f48501" />
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/6434763b-cf79-4fca-8443-b78d61f48501" />
 
 # MedTrace
 ## Digital Medicine Authentication & Traceability Framework
@@ -172,18 +172,22 @@ According to the **World Health Organization**, an estimated **1 in 10 medical p
 
 | 📈 Sales History & Reports | 🧾 GST Invoice Preview |
 |:---:|:---:|
-| <img width="457" height="387" alt="sales history" src="https://github.com/user-attachments/assets/0a686347-fcc8-495e-b888-b28cc9b8c4c0" />
- | ![Invoice](assets/demo/invoice.png) |
+| <img width="457" height="387" alt="sales history" src="https://github.com/user-attachments/assets/0a686347-fcc8-495e-b888-b28cc9b8c4c0" />|<img width="452" height="383" alt="image" src="https://github.com/user-attachments/assets/d8cbb8a9-24f9-4e26-927a-a73a489fa7f7" />|
 | Full transaction log · filter · search · export CSV/PDF | Auto-generated GST invoice · CGST + SGST · rupees in words |
 
 ---
 
 ### 📱 Consumer Verification
 
-| 📷 QR Scanner | ✅ Genuine | ⏰ Expired | 🚨 Recalled | ❓ Invalid |
-|:---:|:---:|:---:|:---:|:---:|
-| ![Scan](assets/demo/scan.png) | ![Genuine](assets/demo/genuine.png) | ![Expired](assets/demo/expired.png) | ![Recalled](assets/demo/recalled.png) | ![Invalid](assets/demo/invalid.png) |
-| Camera scan | Safe to consume | Do not consume | Return immediately | Report it |
+| 📷 QR Scanner | ✅ Genuine | 
+|:---:|:---:|
+|<img width="327" height="327" alt="image" src="https://github.com/user-attachments/assets/ca1f3ebd-0d0e-4c39-b305-e8f081ff7ac4" />|<img width="402" height="376" alt="qr code print sheet" src="https://github.com/user-attachments/assets/57aaa74f-edd8-476e-932e-db47ca5f8ac4" />
+| Camera scan | Safe to consume |
+
+| 🚨 Recalled | ❓ Invalid |
+|:---:|:---:|
+|<img width="368" height="336" alt="image" src="https://github.com/user-attachments/assets/89a06408-8242-43a4-bad1-ac6698897126"/>|<img width="380" height="367" alt="image" src="https://github.com/user-attachments/assets/61e2e541-1bf7-41b2-90d6-34a339cc696b" />|
+| Return immediately | Report it |
 
 *Works in any smartphone browser — no app installation required.*
 
@@ -210,8 +214,7 @@ According to the **World Health Organization**, an estimated **1 in 10 medical p
 ---
 
 ## 🔄 Traceability Flow
-
-![MedTrace Traceability Flow](assets/flowchart.png)
+<img width="479" height="420" alt="image" src="https://github.com/user-attachments/assets/7b8ac477-8c40-4d3a-889b-f75213277058" />
 
 ```
 STEP 1 — MANUFACTURE
