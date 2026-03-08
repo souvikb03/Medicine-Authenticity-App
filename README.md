@@ -114,7 +114,8 @@ According to the **World Health Organization**, an estimated **1 in 10 medical p
 
 ### 📊 Overview Dashboard
 
-![Dashboard](assets/demo/dashboard.png)
+<img width="416" height="436" alt="dashboard" src="https://github.com/user-attachments/assets/ff04378d-4120-45fe-812b-a44e44e0ed90" />
+
 
 *Real-time KPIs, 7-day scan chart, top verified products, supply chain coverage stats, and live activity feed — everything a manufacturer needs at a glance.*
 
@@ -122,7 +123,8 @@ According to the **World Health Organization**, an estimated **1 in 10 medical p
 
 ### 🔑 Onboarding & Registration
 
-![Register](assets/demo/register.png)
+<img width="422" height="437" alt="registration" src="https://github.com/user-attachments/assets/3db1812c-51e9-4784-92f3-c933ea2b9619" />
+
 
 *Organisations — Manufacturers, Distributors, Retailers — register with company name, Drug License Number, and GSTIN. Role selection determines which portal they access after verification.*
 
@@ -132,17 +134,17 @@ According to the **World Health Organization**, an estimated **1 in 10 medical p
 
 | 📦 Product Catalog | 🧬 Batch Creation & QR Generation |
 |:---:|:---:|
-| ![Catalog](assets/demo/catalog.png) | ![Batch](assets/demo/batch.png) |
+|<img width="387" height="377" alt="product catalog" src="https://github.com/user-attachments/assets/2a24976a-76bc-483a-b4d3-b8ba1d529178" />|<img width="311" height="308" alt="batch creation" src="https://github.com/user-attachments/assets/bbec6b2c-e7ae-4ede-9a7f-879661f3edc1" />|
 | Register medicines with dosage, strength, HSN code, pricing | Create batches → set hierarchy → generate all QR codes |
 
 | 📋 Dispatch & GST Invoice | 🖨️ QR Code Print Sheet |
 |:---:|:---:|
-| ![Dispatch](assets/demo/dispatch.png) | ![QR Sheet](assets/demo/qrsheet.png) |
+|<img width="334" height="338" alt="gst invoice" src="https://github.com/user-attachments/assets/25c7f446-29e9-47c7-b831-67582def80cf" />|<img width="406" height="430" alt="image" src="https://github.com/user-attachments/assets/8788b33a-5cc2-4fc1-bb65-3f96011c8c7f" />|
 | Select distributor → auto GST calculation → confirm dispatch | Print-ready QR sheets with batch info, expiry, strip ID |
 
 | 🚨 Quality Control & Recall | 👥 Team Management |
 |:---:|:---:|
-| ![Recall](assets/demo/recall.png) | ![Team](assets/demo/team.png) |
+|<img width="394" height="349" alt="quality control" src="https://github.com/user-attachments/assets/c0206512-b1d1-4c15-a31c-c66ebe870eb9" />|<img width="351" height="323" alt="team management" src="https://github.com/user-attachments/assets/48ccba1a-9601-4f56-b9f7-e5230a8ef92c" />|
 | Monitor batches · trigger recall · view propagation impact | Register operators · assign PIN-protected job codes · audit prints |
 
 ---
@@ -151,12 +153,12 @@ According to the **World Health Organization**, an estimated **1 in 10 medical p
 
 | 📥 Incoming Shipments | 🛒 B2B Medicine Marketplace |
 |:---:|:---:|
-| ![Incoming](assets/demo/incoming.png) | ![Marketplace](assets/demo/marketplace.png) |
+| <img width="447" height="377" alt="shipments" src="https://github.com/user-attachments/assets/8bd3c945-d7fa-48cf-9616-1d46c6dea418" />|<img width="448" height="404" alt="marketplace" src="https://github.com/user-attachments/assets/f1bb1517-2cd6-4eeb-9da9-c45c58fbd9e2" />|
 | Review manifests → accept stock → inventory auto-updates | Compare manufacturers · prices · expiry · ratings · order |
 
 | 📋 Order Management | 🚨 Quality Alerts & Recall Notices |
 |:---:|:---:|
-| ![Orders](assets/demo/orders.png) | ![Alerts](assets/demo/alerts.png) |
+| <img width="446" height="375" alt="order management" src="https://github.com/user-attachments/assets/f244400e-33f6-46fe-a33a-daab89944407" />|<img width="437" height="371" alt="recall distributor" src="https://github.com/user-attachments/assets/e4478342-72b6-4824-9591-8a5abebc4ed6" />|
 | Approve / reject retailer orders · partial fulfillment | Critical · Warning · Notice — with required action instructions |
 
 ---
@@ -165,12 +167,13 @@ According to the **World Health Organization**, an estimated **1 in 10 medical p
 
 | 🖥️ POS Terminal | 📊 Live Shelf Inventory |
 |:---:|:---:|
-| ![POS](assets/demo/pos.png) | ![Inventory](assets/demo/inventory.png) |
+|<img width="449" height="379" alt="pos terminal" src="https://github.com/user-attachments/assets/2a54fa19-afe5-41ed-af5b-0d9154afe12a" />|<img width="453" height="379" alt="shelf inventory" src="https://github.com/user-attachments/assets/5edad8e4-ed28-45bf-a210-bbad1224ba0e" />|
 | Fast billing · Cash & UPI · receipt print · auto stock deduct | Real-time expiry monitoring · reorder alerts · valuation |
 
 | 📈 Sales History & Reports | 🧾 GST Invoice Preview |
 |:---:|:---:|
-| ![Sales](assets/demo/sales.png) | ![Invoice](assets/demo/invoice.png) |
+| <img width="457" height="387" alt="sales history" src="https://github.com/user-attachments/assets/0a686347-fcc8-495e-b888-b28cc9b8c4c0" />
+ | ![Invoice](assets/demo/invoice.png) |
 | Full transaction log · filter · search · export CSV/PDF | Auto-generated GST invoice · CGST + SGST · rupees in words |
 
 ---
